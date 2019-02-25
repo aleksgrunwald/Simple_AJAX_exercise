@@ -1,0 +1,78 @@
+{
+	"animals-1": [{
+			"name": "Meowsy",
+			"species": "cat",
+			"foods": {
+				"likes": ["tuna", "catnip"],
+				"dislikes": ["ham", "zucchini"]
+			}
+		},
+		{
+			"name": "Barky",
+			"species": "dog",
+			"foods": {
+				"likes": ["bones", "carrots"],
+				"dislikes": ["tuna"]
+			}
+		},
+		{
+			"name": "Purrpaws",
+			"species": "cat",
+			"foods": {
+				"likes": ["mice"],
+				"dislikes": ["cookies"]
+			}
+		}
+	],
+    "animals-2": [{
+			"name": "Miauek",
+			"species": "cat",
+			"foods": {
+				"likes": ["tuna", "catnip"],
+				"dislikes": ["ham", "zucchini"]
+			}
+		},
+		{
+			"name": "Mazur",
+			"species": "dog",
+			"foods": {
+				"likes": ["bones", "carrots"],
+				"dislikes": ["tuna"]
+			}
+		},
+		{
+			"name": "Pazurek",
+			"species": "cat",
+			"foods": {
+				"likes": ["mice"],
+				"dislikes": ["cookies"]
+			}
+		}
+	],
+    "animals-3": [{
+			"name": "Flacku",
+			"species": "cat",
+			"foods": {
+				"likes": ["tuna", "catnip"],
+				"dislikes": ["ham", "zucchini"]
+			}
+		},
+		{
+			"name": "Flicku",
+			"species": "dog",
+			"foods": {
+				"likes": ["bones", "carrots"],
+				"dislikes": ["tuna"]
+			}
+		},
+		{
+			"name": "Kropka",
+			"species": "cat",
+			"foods": {
+				"likes": ["mice"],
+				"dislikes": ["cookies"]
+			}
+		}
+	]
+    
+}
