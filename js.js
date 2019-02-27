@@ -9,31 +9,23 @@ var urls = ['http://localhost:3000/animals-1',
 var timesFetched = 0;
 var background = '';
 
+function getData(urle) {
+  return new Promise(function(resolve, reject) {
+    var ourRequest =  new XMLHttpRequest();
+    ourRequest.onload = function() {
+      var data;
 
-btn.addEventListener("click", function() {
-  var ourRequest =  new XMLHttpRequest();
-  ourRequest.open('GET', urls[timesFetched]);
-  ourRequest.onload = function() {
-    var ourData = JSON.parse(ourRequest.responseText);
-    renderHTML(ourData, background)
-  };
-  ourRequest.send();
-  timesFetched++;
-  console.log(timesFetched)
-  if(timesFetched == urls.length) {
-    this.classList.add('hide-me');
-  }
-  
-  switch (timesFetched % 2 == 0) {
-    case true: 
-      background = 'gray';
-      break;
-    case false: 
-      background = 'white';
-      break;
-  }
-
-});
+      if (ourRequest.status >= 200 && ourRequest.status < 400) {
+          data = JSON.parse(ourRequest.responseText);
+          resolve(data);
+      } else {
+        reject();
+      };
+    };
+    ourRequest.open('GET', urle, true);
+    ourRequest.send();
+  });
+};
 
 
 function renderHTML(data, bgColor) {
@@ -43,10 +35,35 @@ function renderHTML(data, bgColor) {
     var {name, species, foods, likes, dislikes} =  data[i];
 
     htmlString += `<p style="background: ${bgColor};">${name} is a ${species} !"</p>`;
-  }
+  };
 
   animalContainer.insertAdjacentHTML('beforeend', htmlString);
+};
 
-  
-}
+
+btn.addEventListener("click", function() {
+  getData(urls[timesFetched])
+    .then(
+      function(data) {
+        renderHTML(data, background);
+        timesFetched++;
+        console.log(timesFetched)
+        if (timesFetched == urls.length) {
+          btn.classList.add('hide-me');
+        };    
+        switch (timesFetched % 2 == 0) {
+          case true: 
+            background = 'pink';
+            break;
+          case false: 
+            background = 'white';
+            break;
+        }
+      },
+      function() {
+        console.log('is not fullfilled')
+      }
+     );
+});
+
 
